@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('create','base_controller@create');
+Route::get('index/{id}','base_controller@index');
 Route::post('submit','base_controller@store')->name('stud_add');
