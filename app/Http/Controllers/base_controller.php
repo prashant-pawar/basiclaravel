@@ -9,7 +9,7 @@ class base_controller extends Controller
     public function index($id)
     {
         return DB::table('student')->get();
-        //return DB::table('student')->where('id',$id)->get();
+        return DB::table('student')->where('id',$id)->get();
     }
 
     public function create()
