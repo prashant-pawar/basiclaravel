@@ -13,25 +13,31 @@
 
 <div class="container">
 
-  <form action="{{ route('student.store') }}" method="post" class="vertical">
+  <form action="{{route('student.update',$student->id) }}" method="post" class="vertical">
       @csrf
+        @method('PUT')
+
 
     <div class="form-group">
       <label for="email">Name:</label>
-      <input type="text" class="form-control"  placeholder="Enter email " size="10" name="name">
+      <input type="text" class="form-control"  placeholder="Enter email " size="10" name="name"
+      value="{{$student->name}}">
     </div>
     <div class="form-group">
         <label for="email">Email:</label>
-        <input type="text" class="form-control"  placeholder="Enter email " size="10" name="email">
+        <input type="text" class="form-control"  placeholder="Enter email " size="10" name="email"
+        value="{{$student->email}}">
       </div>
       <div class="form-group">
         <label for="email">Mobile no:</label>
-        <input type="text" class="form-control"  placeholder="Enter email " size="10" name="contact">
+        <input type="text" class="form-control"  placeholder="Enter email " size="10" name="contact"
+        value="{{$student->contact}}">
       </div>
 
     <div class="form-group">
       <label for="pwd">address:</label>
-      <input type="text" class="form-control"  placeholder="Enter password" name="address">
+      <input type="text" class="form-control"  placeholder="Enter password" name="address"
+      value="{{$student->address}}">
     </div>
     <div class="form-group form-check">
       <label class="form-check-label">
