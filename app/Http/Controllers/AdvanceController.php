@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Auth\Events\Validated;
+
 
 class AdvanceController extends Controller
 {
@@ -14,7 +16,8 @@ class AdvanceController extends Controller
      */
     public function index()
     {
-        return DB::table('student')->get();
+
+    return DB::table('student')->get();
     }
 
     /**
@@ -24,6 +27,7 @@ class AdvanceController extends Controller
      */
     public function create()
     {
+
         return view('add_stud');
     }
 
@@ -35,6 +39,9 @@ class AdvanceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            ['name'=>'required']
+        );
       $flag=  DB::table('student')->insert([
             'name'=>$request->name,
             'email'=>$request->email,
